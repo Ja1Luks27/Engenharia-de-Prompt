@@ -4,6 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Eclipse</title>
+    <script defer>
+        const btnEnv = document.querySelector("#btn-env");
+        var historico = []
+
+        function env(){
+            let content = document.querySelector("#content-chat")
+            let prompt = document.querySelector("#input-prompt")
+            if(!prompt.value)return;
+
+
+            content.appendChild(mensagem(prompt.value))
+        }
+
+        function mensagem(txt){
+            let msg = document.createElement("div");
+            msg.classList.add("msg")
+            msg.innerText = txt;
+            return msg;
+        }
+    </script>
 </head>
 <body style="padding: 20px;background-color: rgb(18, 18, 24);">
     <div style="
@@ -13,13 +33,13 @@
             <h3 style="text-align: center;">Eclipse</h3>
         </div>
         <div style="grid-column:2 ;display: grid;grid-template-rows:  12fr 1fr;">
-            <div style="grid-row: 1;display: flex;justify-content: center;align-items: center; ">
+            <div id="content-chat" style="grid-row: 1;display: flex;justify-content: center;align-items: center; ">
                 <h3>Chat com Eclipse</h3>
-                <img src="/bot.png" width="100px" height="100px" alt="">
+                <img src="bot.png" width="100px" height="100px" alt="">
             </div>
             <div style="grid-row: 2;display: grid;grid-template-columns: 8fr 2fr;padding-inline: 5px;border-radius: 10px;">
-                <input type="text" style="width: 100%;">
-                <button>Enviar</button>
+                <input type="text" id="input-prompt" style="width: 100%;">
+                <button id="btn-env" onclick="env()">Enviar</button>
             </div>
 
         </div>
